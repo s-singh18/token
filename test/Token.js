@@ -166,5 +166,16 @@ describe("Token", () => {
         ).to.be.equal(0);
       });
     });
+
+    describe("Failure", () => {
+      it("Rejects insufficient amounts", async () => {
+        const invalidAmount = tokens(100000000);
+        await expect(
+          token
+            .connect(exchange)
+            .transferFrom(deployer.address, receiver.address, invalidAmount)
+        );
+      });
+    });
   });
 });

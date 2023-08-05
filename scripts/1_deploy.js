@@ -5,9 +5,9 @@ async function main() {
   const Token = await hre.ethers.getContractFactory("Token");
 
   // Deploy contract
-  const token = await Token.deploy();
+  const token = await Token.deploy("Dapp University", "DAPP", "1000000");
   await token.deployed();
-  console.log(`$Token deployed to: ${token.address}`);
+  console.log(`Token deployed to: ${token.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
